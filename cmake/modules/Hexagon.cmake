@@ -96,7 +96,7 @@ if(USE_HEXAGON_LAUNCHER STREQUAL "ON")
 
   set(LAUNCHER_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/apps_hexagon_launcher")
   ExternalProject_Add(launcher_android
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/apps/hexagon_launcher/cmake/android"
+    SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/apps/hexagon_launcher/cmake/android"
     INSTALL_DIR "${LAUNCHER_BINARY_DIR}"
     BUILD_ALWAYS ON
     CMAKE_ARGS
@@ -116,7 +116,7 @@ if(USE_HEXAGON_LAUNCHER STREQUAL "ON")
     DEPENDEES install
   )
   ExternalProject_Add(launcher_hexagon
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/apps/hexagon_launcher/cmake/hexagon"
+    SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/apps/hexagon_launcher/cmake/hexagon"
     INSTALL_DIR "${LAUNCHER_BINARY_DIR}"
     BUILD_ALWAYS ON
     CMAKE_ARGS
@@ -146,7 +146,7 @@ if(USE_HEXAGON_DEVICE STREQUAL "${PICK_SIM}")
   link_directories("${HEXAGON_TOOLCHAIN}/lib/iss")
   list(APPEND TVM_RUNTIME_LINKER_LIBS "-lwrapper")
   ExternalProject_Add(sim_dev
-    SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/runtime/hexagon/android/sim/driver"
+    SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/runtime/hexagon/android/sim/driver"
     CMAKE_ARGS
       "-DCMAKE_C_COMPILER=${HEXAGON_TOOLCHAIN}/bin/hexagon-clang"
       "-DCMAKE_CXX_COMPILER=${HEXAGON_TOOLCHAIN}/bin/hexagon-clang++"
